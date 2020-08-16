@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../css/update.css">
+		<meta charset="utf-8">
+		<title>Update Emoployee</title>
+	</head>
+	<style>
+	.search {
+		width: 350px;
+		margin: 0 auto;
+		margin-top : 50px;
+		font-family: sans-serif;
+		}
+		.search h1 {
+		text-align: left;
+		color: #4d4d4d;
+		font-size: 20px;
+		padding: 20px 0 20px 0;
+		}
+
+		.search [type="button"] {
+		width: 100%;
+		padding: 15px;
+		background-color: #20B2AA;
+		border: 0;
+		box-sizing: border-box;
+		cursor: pointer;
+		font-weight: bold;
+		color: #ffffff;
+		margin-top: 40px;
+		margin-bottom: -20px;
+		}
+
+		.search [type="button"]:hover {
+			background-color: #20B2AA;
+			color: white;
+		}
+
+		hr.line {
+			border-top: 1.5px solid #20B2AA;
+		margin-bottom: 30px;
+		margin-top: -40px;
+		}
+
+	</style>
+	<body>
+		<div class="search">
+			<h1 style="margin-top: 20px; font-size: 40px; color: #154360">Search Result For <%= user.id %></h1>
+			<hr class="line">
+				  <h1 style="font-size: 25px;">Id: <span style="font-size: 20px; color:#154360; "><%= user.id %></span></h1>
+          <h1 style="font-size: 25px;">Name: <span style="font-size: 20px; color:#154360;"><%= user.name %></span></h1>
+          <h1 style="font-size: 25px;">Username: <span style="font-size: 20px; color:#154360;"><%= user.uname %></span></h1>
+          <h1 style="font-size: 25px;">Phone: <span style="font-size: 20px; color:#154360;"><%= user.phone %></span></h1>
+          <h1 style="font-size: 25px;">Gender: <span style="font-size: 20px; color:#154360;"><%= user.gender %></span></h1>
+          <h1 style="font-size: 25px;">Designation: <span style="font-size: 20px; color:#154360;"><%= user.designation %></span>
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Ok" onclick="window.location.href='/admin/allemployeeslist';">
+			</form>
+		</div>
+	</body>
+</html>

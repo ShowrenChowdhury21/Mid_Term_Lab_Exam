@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Employee Profile</title>
+	</head>
+	<style>
+	.myprofile {
+		width: 350px;
+		margin: 0 auto;
+		margin-top : 170px;
+		font-family: sans-serif;
+		}
+		.myprofile h1 {
+		text-align: left;
+		color: #4d4d4d;
+		font-size: 40px;
+		padding: 20px 0 20px 0;
+		}
+
+		.myprofile input[type=button] {
+		width: 100%;
+		padding: 15px;
+		background-color: #20B2AA;
+		border: 0;
+		box-sizing: border-box;
+		cursor: pointer;
+		font-weight: bold;
+		color: #ffffff;
+		margin-top: 40px;
+		margin-bottom: -20px;
+		}
+
+		.myprofile input[type=button]:hover {
+			background-color: #20B2AA;
+			color: white;
+		}
+		hr.line {
+			border-top: 1.5px solid #20B2AA;
+		margin-bottom: 30px;
+		margin-top: -40px;
+		}
+
+	</style>
+	<body>
+		<div class="myprofile">
+			<h1>My Profile</h1>
+			<hr class="line">
+        <table cellspacing = 10px>
+          <tr>
+            <td><lebel style="font-size: 18px;">Id: </lebel></td>
+            <td><span style="font-size: 25px;"><%= user.id %></span></td>
+          </tr>
+          <tr>
+            <td><lebel style="font-size: 18px;">Name: </lebel></td>
+            <td><span style="font-size: 25px;"><%= user.name %></span></td>
+          </tr>
+					<tr>
+            <td><lebel style="font-size: 18px;">User Name: </lebel></td>
+            <td><span style="font-size: 25px;"><%= user.uname %></span></td>
+          </tr>
+          <tr>
+            <td><label style="font-size: 18px;">Phone:  </lebel></td>
+            <td><span style="font-size: 22px;"><%= user.phone %></span></td>
+          </tr>
+          <tr>
+            <td><label style="font-size: 18px;">Gender:  </lebel></td>
+            <td><span style="font-size: 22px;"><%= user.gender %></span></td>
+          </tr>
+          <tr>
+            <td><label style="font-size: 18px;">Designation:  </lebel></td>
+            <td><span style="font-size: 22px;"><%= user.designation %></span></td>
+          </tr>
+        </table><br><br>
+        <hr>
+        <input type="button" class="btn btn-default" data-dismiss="modal" value="Ok" onclick="window.location.href='/employee/';">		</div>
+	</body>
+</html>

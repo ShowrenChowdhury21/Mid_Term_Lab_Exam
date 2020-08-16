@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../css/employee.css">
+		<meta charset="utf-8">
+		<title>Employee</title>
+	</head>
+	<style>
+	.employee{
+	width: 350px;
+	margin: 0 auto;
+	margin-top : 220px;
+	font-family: sans-serif;
+	}
+.employee h1 {
+	text-align: left;
+	color: #4d4d4d;
+	font-size: 40px;
+	padding: 20px 0 20px 0;
+	}
+
+.employee input[type = button] {
+	width: 100%;
+	padding: 15px;
+	background-color: #20B2AA;
+	border: 0;
+	box-sizing: border-box;
+	cursor: pointer;
+	font-weight: bold;
+	color: #ffffff;
+	margin-top: 40px;
+	margin-bottom: -20px;
+}
+
+.employee input[type = button]:hover {
+  	background-color: #20B2AA;
+  	color: white;
+}
+hr.line {
+  	border-top: 1.5px solid #20B2AA;
+	margin-bottom: 20px;
+	margin-top: -40px;
+}
+a {
+  background-color: #20B2AA;
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+	margin-left : 120px;
+}
+	</style>
+	<body>
+		<div class="employee">
+			<h1>Welcome <%= uname %></h1>
+			<hr class="line">
+			<form action="" method="POST">
+				<input type="button" name="option" value = "Add Product" onclick="window.location.href='/employee/addproduct';">
+        <input type="button" name="option" value = "All Product List" onclick="window.location.href='/employee/allproductlist';">
+				<input type="button" name="option" value = "Back" onclick="window.location.href='/employee';">
+				<br><br><br><br>
+				<a href='/logout'>Logout</a>
+			</form>
+		</div>
+	</body>
+</html>

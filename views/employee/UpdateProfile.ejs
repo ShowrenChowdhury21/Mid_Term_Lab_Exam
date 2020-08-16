@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Update profile</title>
+	</head>
+	<style>
+	.updateprofile {
+	width: 350px;
+	margin: 0 auto;
+	margin-top : 120px;
+	font-family: sans-serif;
+	}
+	.updateprofile h1 {
+	text-align: left;
+	color: #4d4d4d;
+	font-size: 40px;
+	padding: 20px 0 20px 0;
+	}
+	.updateprofile input[type="text"] {
+	width: 100%;
+	padding: 15px;
+	border: 1px solid #dddddd;
+	margin-bottom: 15px;
+	box-sizing:border-box;
+	}
+	.updateprofile input[type="password"] {
+	width: 100%;
+	padding: 15px;
+	border: 1px solid #dddddd;
+	margin-bottom: 15px;
+	box-sizing:border-box;
+	}
+
+	.updateprofile [type="submit"] {
+	width: 100%;
+	padding: 15px;
+	background-color: #20B2AA;
+	border: 0;
+	box-sizing: border-box;
+	cursor: pointer;
+	font-weight: bold;
+	color: #ffffff;
+	margin-top: 40px;
+	margin-bottom: -20px;
+	}
+
+	.updateprofile [type="submit"]:hover {
+		background-color: #20B2AA;
+		color: white;
+	}
+	hr.line {
+		border-top: 1.5px solid #20B2AA;
+	margin-bottom: 30px;
+	margin-top: -40px;
+	}
+
+	</style>
+	<body>
+		<div class="updateprofile">
+			<h1>Update Profile</h1>
+			<hr class="line">
+      <form action="/employee/update" method="POST">
+        <table>
+          <tr>
+            <td><lebel style="font-size: 18px;">Id: </lebel></td>
+            <td><input type="text" placeholder="Enter id" name="id" id="id" value="<%=user.id%>"></td>
+          </tr>
+          <tr>
+            <td><lebel style="font-size: 18px;">Name: </lebel></td>
+            <td><input type="text" placeholder="Enter Name" name="name" id="name" value="<%=user.name%>"></td>
+          </tr>
+					<tr>
+            <td><lebel style="font-size: 18px;">Username: </lebel></td>
+            <td><input type="text" placeholder="Enter Username" name="uname" id="uname" value="<%=user.uname%>"></td>
+          </tr>
+					<tr>
+            <td><lebel style="font-size: 18px;">Phone: </lebel></td>
+            <td><input type="text" placeholder="Enter Phone" name="phone" id="phone" value="<%=user.phone%>"></td>
+          </tr>
+        </table><br><br>
+					<input type="password" placeholder="Enter password" name="password" id="password">
+          <hr>
+          <button type="submit" class="updatebtn" >Update</button>
+      </form>
+    </div>
+	</body>
+</html>

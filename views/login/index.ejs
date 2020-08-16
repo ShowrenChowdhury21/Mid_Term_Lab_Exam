@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login Form</title>
+	</head>
+	<style>
+	.loginform {
+		width: 300px;
+		margin: 0 auto;
+		margin-top : 220px;
+		font-family: sans-serif;
+		}
+		.loginform h1 {
+		text-align: left;
+		color: #4d4d4d;
+		font-size: 40px;
+		padding: 20px 0 20px 0;
+		}
+		.loginform input[type="password"],
+		.loginform input[type="text"] {
+		width: 100%;
+		padding: 15px;
+		border: 1px solid #dddddd;
+		margin-bottom: 15px;
+		box-sizing:border-box;
+		}
+		.loginform input[type="submit"] {
+		width: 100%;
+		padding: 15px;
+		background-color: #20B2AA;
+		border: 0;
+		box-sizing: border-box;
+		cursor: pointer;
+		font-weight: bold;
+		color: #ffffff;
+		margin-top: 10px;
+		}
+		.loginform input[type="submit"]:hover{
+		background-color: #20B2AA;
+			color: white;
+		}
+		hr.line {
+			border-top: 1.5px solid #20B2AA;
+		margin-bottom: 20px;
+		margin-top: -40px;
+		}
+	</style>
+	<body>
+		<div class="loginform">
+			<h1>Login</h1>
+			<hr class="line">
+			<form method="POST">
+				<input type="text" name="uname" placeholder="Username" required>
+				<input type="password" name="password" placeholder="Password" required>
+			  <hr>
+				<input type="submit">
+			</form>
+		</div>
+	</body>
+</html>

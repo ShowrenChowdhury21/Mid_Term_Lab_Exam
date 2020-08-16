@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Add Product</title>
+	</head>
+	<style>
+	.addpd {
+		width: 350px;
+		margin: 0 auto;
+		margin-top : 80px;
+		font-family: sans-serif;
+		}
+		.addpd h1 {
+		text-align: left;
+		color: #20B2AA;
+		font-size: 40px;
+		padding: 20px 0 20px 0;
+		}
+		.addpd input[type="text"], input[type="password"]{
+		width: 100%;
+		padding: 15px;
+		border: 1px solid #dddddd;
+		margin-bottom: 15px;
+		box-sizing:border-box;
+		}
+
+		.addpd [type="submit"] {
+		width: 100%;
+		padding: 15px;
+		background-color: #20B2AA;
+		border: 0;
+		box-sizing: border-box;
+		cursor: pointer;
+		font-weight: bold;
+		color: #ffffff;
+		margin-top: 40px;
+		margin-bottom: 30px;
+		margin-bottom: -20px;
+		}
+
+		.addpd [type="submit"]:hover {
+			background-color: #20B2AA;
+			color: white;
+		}
+		.addpd [type="button"] {
+		width: 100%;
+		padding: 15px;
+		background-color: #20B2AA;
+		border: 0;
+		box-sizing: border-box;
+		cursor: pointer;
+		font-weight: bold;
+		color: #ffffff;
+		margin-bottom: -20px;
+		}
+
+		.addpd [type="button"]:hover {
+			background-color: #20B2AA;
+			color: white;
+		}
+		hr.line {
+			border-top: 1.5px solid #20B2AA;
+		margin-bottom: 30px;
+		margin-top: -40px;
+		}
+
+
+		.dropdown {
+			position: relative;
+		font-family: sen-serif;
+			width: 100%;
+		padding: 12px;
+		margin-bottom: 15px;
+		border: 1px solid #dddddd;
+		box-sizing:border-box;
+		}
+
+		.dropdown select {
+		display: none;
+		}
+
+		.select-selected {
+		background-color: DodgerBlue;
+		}
+
+		.select-selected:after {
+		position: absolute;
+		content: "";
+		top: 14px;
+		right: 10px;
+		width: 0;
+		height: 0;
+		border: 6px solid transparent;
+		border-color: #fff transparent transparent transparent;
+		}
+
+		.select-selected.select-arrow-active:after {
+		border-color: transparent transparent #fff transparent;
+		top: 7px;
+		}
+
+		.select-items div,.select-selected {
+		color: #ffffff;
+		padding: 8px 16px;
+		border: 1px solid transparent;
+		border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+		cursor: pointer;
+		}
+
+		.select-items {
+		position: absolute;
+		background-color: DodgerBlue;
+		top: 100%;
+		left: 0;
+		right: 0;
+		z-index: 99;
+		}
+
+		.select-hide {
+		display: none;
+		}
+
+		.select-items div:hover, .same-as-selected {
+		background-color: rgba(0, 0, 0, 0.1);
+		}
+	</style>
+	<body>
+		<div class="addpd">
+			<h1 style="margin-top: -20px;">Add Products</h1>
+			<hr class="line">
+      <form name = "addpd" action="/employee/addproduct" method="POST" onsubmit="return validation();">
+				  <input type="text" placeholder="Enter ID" name="pid" id="pid" ><span style="color: red;" id="er_id"></span>
+          <input type="text" placeholder="Enter Name" name="pname" id="pname" ><span style="color: red;" id="er_name"></span>
+          <input type="text" placeholder="Enter Quantity" name="quantity" id="quantity" ><span style="color: red;" id="er_qnt"></span>
+          <input type="text" placeholder="Enter Price" name="price" id="price" ><span style="color: red;" id="er_pr"></span>
+          <hr>
+          <input type="submit" name="add" class="add" value="Add Product">
+					<input type="button" name="back" style="margin-top: 30px;" class="back" value="Back" onclick="window.location.href='/employee/products';">
+					<input type="button" name="home" style="margin-top: 30px;" class="home" value="Home" onclick="window.location.href='/employee';">
+      </form>
+		</div>
+	</body>
+</html>
+
+<script>
+function validation(){
+	var id = document.forms["addpd"]["pid"].value;
+	var name = document.forms["addpd"]["pname"].value;
+	var quantity = document.forms["addpd"]["quantity"].value;
+	var price = document.forms["addpd"]["price]"].value;
+	if(id == "")
+	{
+		document.getElementById("er_id").innerHTML = "Please enter Product ID.";
+		return false;
+	}
+	if(name == "")
+	{
+		document.getElementById("er_name").innerHTML = "Please enter Product Name.";
+		return false;
+	}
+	if(quantity == "")
+	{
+		document.getElementById("er_qnt").innerHTML = "Enter Quantity";
+		return false;
+	}
+	if(price == "")
+	{
+		document.getElementById("er_pr").innerHTML = "Add Product Price";
+		return false;
+	}
+}
+</script>

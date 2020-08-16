@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../Assets/crud.css">
+		<meta charset="utf-8">
+		<title>Delete Product</title>
+	</head>
+	<style>
+	.footer [type="submit"], [type="button"] {
+	width: 45%;
+	padding: 15px;
+	background-color: #20B2AA;
+	border: 0;
+	box-sizing: border-box;
+	cursor: pointer;
+	font-weight: bold;
+	color: #ffffff;
+	margin-top: 40px;
+	margin-bottom: -20px;
+	}
+	</style>
+	<body>
+		<div id="deleteEmployeeModal">
+			<div class="container" style="margin-top: 200px; margin-left: 650px;width: 600px; height: 300px;">
+			 <form action = "/employee/delete/<%= product.id %>" method = "post">
+				<div class="header">
+				 <h4 class="title" style="font-size: 35px; color: #005aa2;">Delete Product</h4>
+				</div>
+				<div class="body">
+				 <p style="font-size: 20px;">Are you sure you want to delete ID: <%= product.id %>, Name:<%= product.name %> </p>
+				 <p class="text-warning"><small>This action cannot be undone.</small></p>
+				</div>
+				<div class="footer">
+				 <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel" onclick="window.location.href='/employee/allproductlist';">
+				 <button type="submit" style="background:red;"id = "delete_button" name = "delete_button" class="btn btn-danger">Delete</button>
+				</div>
+			 </form>
+			</div>
+		 </div>
+	</body>
+</html>

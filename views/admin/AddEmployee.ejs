@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Add Emoployee</title>
+	</head>
+	<style>
+	.addemp {
+		width: 350px;
+		margin: 0 auto;
+		margin-top : 80px;
+		font-family: sans-serif;
+		}
+		.addemp h1 {
+		text-align: left;
+		color: #4d4d4d;
+		font-size: 40px;
+		padding: 20px 0 20px 0;
+		}
+		.addemp input[type="text"], input[type="password"]{
+		width: 100%;
+		padding: 15px;
+		border: 1px solid #dddddd;
+		margin-bottom: 15px;
+		box-sizing:border-box;
+		}
+
+		.addemp [type="submit"] {
+		width: 100%;
+		padding: 15px;
+		background-color: #20B2AA;
+		border: 0;
+		box-sizing: border-box;
+		cursor: pointer;
+		font-weight: bold;
+		color: #ffffff;
+		margin-top: 40px;
+		margin-bottom: 30px;
+		margin-bottom: -20px;
+		}
+
+		.addemp [type="submit"]:hover {
+			background-color: #20B2AA;
+			color: white;
+		}
+		.addemp [type="button"] {
+		width: 100%;
+		padding: 15px;
+		background-color: #20B2AA;
+		border: 0;
+		box-sizing: border-box;
+		cursor: pointer;
+		font-weight: bold;
+		color: #ffffff;
+		margin-bottom: -20px;
+		}
+
+		.addemp [type="button"]:hover {
+			background-color: #20B2AA;
+			color: white;
+		}
+		hr.line {
+			border-top: 1.5px solid #20B2AA;
+		margin-bottom: 30px;
+		margin-top: -40px;
+		}
+
+
+		.dropdown {
+			position: relative;
+		font-family: sen-serif;
+			width: 100%;
+		padding: 12px;
+		margin-bottom: 15px;
+		border: 1px solid #dddddd;
+		box-sizing:border-box;
+		}
+
+		.dropdown select {
+		display: none;
+		}
+
+		.select-selected {
+		background-color: DodgerBlue;
+		}
+
+		.select-selected:after {
+		position: absolute;
+		content: "";
+		top: 14px;
+		right: 10px;
+		width: 0;
+		height: 0;
+		border: 6px solid transparent;
+		border-color: #fff transparent transparent transparent;
+		}
+
+		.select-selected.select-arrow-active:after {
+		border-color: transparent transparent #fff transparent;
+		top: 7px;
+		}
+
+		.select-items div,.select-selected {
+		color: #ffffff;
+		padding: 8px 16px;
+		border: 1px solid transparent;
+		border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+		cursor: pointer;
+		}
+
+		.select-items {
+		position: absolute;
+		background-color: DodgerBlue;
+		top: 100%;
+		left: 0;
+		right: 0;
+		z-index: 99;
+		}
+
+		.select-hide {
+		display: none;
+		}
+
+		.select-items div:hover, .same-as-selected {
+		background-color: rgba(0, 0, 0, 0.1);
+		}
+	</style>
+	<body>
+		<div class="addemp">
+			<input type="button" class="btn btn-default" data-dismiss="modal" value="Home" onclick="window.location.href='/admin/';">
+			<h1 style="font-size: 25px;"><%= uname %></h1>
+			<h1 style="margin-top: -20px;">Add Employee</h1>
+			<hr class="line">
+      <form name = "addemp" action="/admin/addemployee" method="POST" onsubmit="return validation();">
+					<input type="text" placeholder="Enter Id" name="id" id="id" ><span style="color: red;" id="er_id"></span>
+          <input type="text" placeholder="Enter Name" name="name" id="name" ><span style="color: red;" id="er_name"></span>
+					<input type="text" placeholder="Enter UserName" name="uname" id="uname" ><span style="color: red;" id="er_uname"></span>
+          <input type="text" placeholder="Enter Phone" name="phone" id="phone" ><span style="color: red;" id="er_phn"></span>
+          <select class="dropdown" name="gender" id="gender" >
+            <option value="">Select Gender:</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select><span id="er_gender" style="color: red;"></span>
+          <select class="dropdown" name="designation" id="designation" >
+            <option value="">Select Designation:</option>
+            <option value="manager">Manager</option>
+            <option value="accountant">Accountant</option>
+            <option value="executive">Executive</option>
+            <option value="supervisor">Supervisor</option>
+          </select><span id="er_des" style="color: red;"></span>
+					<input type="password" placeholder="Enter Password" name="password" id="password" ><span id="er_pass" style="color: red;"></span>
+          <hr>
+          <input type="submit" name="add" class="addbtn" value="Add">
+      </form>
+		</div>
+	</body>
+</html>
+
+<script>
+function validation(){
+	var id = document.forms["addemp"]["id"].value;
+	var name = document.forms["addemp"]["name"].value;
+	var uname = document.forms["addemp"]["uname"].value;
+	var phone = document.forms["addemp"]["phone"].value;
+	var gender = document.forms["addemp"]["gender"].value;
+	var designation = document.forms["addemp"]["designation"].value;
+	var pass = document.forms["addemp"]["password"].value;
+	var pa = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+
+	if(id == "")
+	{
+		document.getElementById("er_id").innerHTML = "Please enter ID.";
+		return false;
+	}
+	if(name == "")
+	{
+		document.getElementById("er_name").innerHTML = "Please enter Name.";
+		return false;
+	}
+	if(uname.length < 8)
+	{
+		document.getElementById("er_uname").innerHTML = "UserName must have at least 8 charaters";
+		return false;
+	}
+	if(phone.length < 11)
+	{
+		document.getElementById("er_phn").innerHTML = "Phone must have at least 11 Numbers";
+		return false;
+	}
+	if(gender == "")
+	{
+		document.getElementById("er_gender").innerHTML = "Please enter gender.";
+		return false;
+	}
+	if(designation == "")
+	{
+		document.getElementById("er_des").innerHTML = "Please enter Designation.";
+		return false;
+	}
+	if(pass == "")
+	{
+		document.getElementById("er_pass").innerHTML = "Please enter password.";
+		return false;
+	}
+	if(!pass.match(pa))
+	{
+		document.getElementById("er_pass").innerHTML = "Please enter valid password.";
+		return false;
+	}
+}
+</script>
