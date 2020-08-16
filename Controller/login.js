@@ -7,6 +7,11 @@ router.get('/', function(req, res){
 	res.render('login/index');
 });
 
+router.get('/registration', function(req, res){
+	res.redirect('/registration');
+});
+
+
 router.post('/',[
 	body('uname').isLength({min : 8}).withMessage('username should be equal or greater than 8 characters'),
 	body('password').isLength({min : 8}).withMessage('password have to be at least 8 characters long').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/).withMessage('Password sh')
@@ -34,6 +39,9 @@ router.post('/',[
 					}
 					else if (result.role == 2){
 						res.redirect('/employee');
+					}
+					else if (result.role == 3){
+						res.redirect('/customer');
 					}
 				});
 			}else{

@@ -1,6 +1,8 @@
 var express 	     = require('express');
 var bodyParser 	   = require('body-parser');
 var session        = require('express-session');
+var reg            = require('./controller/registration');
+var customer       = require('./controller/customer');
 var login 		     = require('./controller/login');
 var admin          = require('./controller/admin');
 var logout         = require('./controller/logout');
@@ -14,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({secret: 'my value',saveUninitialized: true, resave: false}))
 
 app.use('/login', login);
+app.use('/registration', reg);
+app.use('/customer', customer);
 app.use('/admin', admin);
 app.use('/employee', employee);
 app.use('/logout', logout);

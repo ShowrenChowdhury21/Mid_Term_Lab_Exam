@@ -25,7 +25,7 @@
 		margin-bottom: 15px;
 		box-sizing:border-box;
 		}
-		.loginform input[type="submit"] {
+		.loginform input[type="submit"],input[type="button"] {
 		width: 100%;
 		padding: 15px;
 		background-color: #20B2AA;
@@ -36,7 +36,7 @@
 		color: #ffffff;
 		margin-top: 10px;
 		}
-		.loginform input[type="submit"]:hover{
+		.loginform input[type="submit"]:hover,,input[type="button"]:hover{
 		background-color: #20B2AA;
 			color: white;
 		}
@@ -55,7 +55,9 @@
 				<input type="password" name="password" placeholder="Password" required>
 			  <hr>
 				<input type="submit">
+				<h5>Are you a customer and still didn't register?</h5>
 			</form>
+			<input type="button" class="btn btn-default" data-dismiss="modal" value="Register" onclick="window.location.href='/registration';">
 		</div>
 	</body>
 </html>
